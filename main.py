@@ -40,6 +40,7 @@ def transcribe_chunk(chunk, index, api_url, headers, payload):
             return response.json().get("transcript", "")
         else:
             logging.error(f"Chunk {index} failed with status: {response.status_code}")
+            logging.error(f"Chunk {index} failed with status: {response.text}")
     except Exception as e:
         logging.error(f"Chunk {index} error: {e}")
     finally:
